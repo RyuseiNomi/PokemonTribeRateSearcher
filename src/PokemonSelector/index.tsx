@@ -21,7 +21,6 @@ const PokemonSelector:React.FC = () => {
 
   function handleChange(value: number) {
     var selectedPokemon = pokemons[value];
-    console.log(selectedPokemon.h);
     setRate(rates = {
         h: `${selectedPokemon.h}`,
         a: `${selectedPokemon.a}`,
