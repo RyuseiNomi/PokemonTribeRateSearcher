@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Select, Progress } from 'antd';
-import Pokemon from '../assets/pokemon/pokemon_sample.json';
+import Pokemon from '../assets/pokemon/pokemon.json';
 
 /* JSONから読み込んだポケモンの種族値情報 */
 type Pokemon = {
