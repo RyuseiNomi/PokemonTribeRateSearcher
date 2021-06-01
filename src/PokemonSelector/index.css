@@ -10,7 +10,7 @@
 @media (min-width: 280px) {
     .ant-select {
         width: 80%;
-        padding: 20px 0 20px 0;
+        padding: 40px 0 20px 0;
     }
 
     .chart {
@@ -19,7 +19,7 @@
     }
 
     .chart p {
-        font-size: 10pt;
+        font-size: 11pt;
         font-weight: bold;
     }
 }

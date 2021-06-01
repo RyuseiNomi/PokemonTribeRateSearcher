@@ -40,6 +40,7 @@ const PokemonSelector:React.FC = () => {
           placeholder="ポケモンを選択"
           optionFilterProp="children"
           onChange={handleChange}
+          size="large"
         >
           {Object.keys(pokemons).map((key, value) => {
               return(
