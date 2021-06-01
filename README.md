@@ -1,3 +1,11 @@
+# Pokemon Tribe Rate Searcher
+
+## About this app
+
+A web app for all pokemon trainers. You can to access to pokemon tribe rates quickly so you may be free for concern for memorization the pokemon's tribe rate.
+
+![](./src/assets/demo.png)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

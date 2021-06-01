@@ -8,6 +8,13 @@
     color: white;
 }
 
+.ant-layout-footer {
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
 @media (min-width: 280px) {
     .title {
         font-size: 16pt;
