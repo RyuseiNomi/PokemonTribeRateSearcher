@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Select, Progress, Row, Col } from 'antd';
-import Pokemon from '../assets/pokemon/pokemon.json';
+import PokemonData from '../assets/pokemon/pokemon.json';
 import './index.css';
 
 /* JSONから読み込んだポケモンの種族値情報 */
@@ -17,7 +17,7 @@ type Pokemon = {
 
 const PokemonSelector:React.FC = () => {
   const { Option } = Select;
-  const pokemons:{[key: number]: Pokemon} = Pokemon;
+  const pokemons:{[key: number]: Pokemon} = PokemonData;
   var [rates, setRate] = useState({h: "", a: "", b: "", c: "", d: "", s: "", total: ""});
 
   function handleChange(value: number) {
