@@ -17,7 +17,7 @@ function App() {
 
   return (
     <div className="App">
-        <p className="title">ポケモン種族値早見ツール</p>
+        <p className="title">ポケモン種族値サーチ</p>
         <PokemonSelector />
         <Footer style={footerStyle}>©2021 <a href={twitterUrl} rel="noopener noreferrer" target="_blank">@tsu7ma4_ton10</a></Footer>
     </div>
