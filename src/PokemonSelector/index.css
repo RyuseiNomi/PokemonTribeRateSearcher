@@ -3,3 +3,30 @@
     align-items: center;
 }
 
+@media (min-width: 280px) {
+    .ant-select {
+        width: 80%;
+        padding: 10px 0 10px 0;
+    }
+}
+
+@media (min-width: 375px) {
+    .ant-select {
+        width: 70%;
+        padding: 20px 0 20px 0;
+    }
+}
+
+@media (min-width: 576px) {
+    .ant-select {
+        width: 60%;
+        padding: 25px 0 25px 0;
+    }
+}
+
+@media (min-width: 768px) {
+    .ant-select {
+        padding: 30px 0 30px 0;
+    }
+}
+

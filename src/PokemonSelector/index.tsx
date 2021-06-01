@@ -37,7 +37,6 @@ const PokemonSelector:React.FC = () => {
       <>
         <Select
           showSearch
-          style={{ width: 200 }}
           placeholder="ポケモンを選択"
           optionFilterProp="children"
           onChange={handleChange}

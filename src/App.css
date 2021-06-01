@@ -10,7 +10,14 @@
 
 @media (min-width: 280px) {
     .title {
-        font-size:24pt;
+        font-size: 16pt;
+        padding: 20px 0 20px 0;
+    }
+}
+
+@media (min-width: 375px) {
+    .title {
+        font-size: 20pt;
         padding: 20px 0 20px 0;
     }
 }
