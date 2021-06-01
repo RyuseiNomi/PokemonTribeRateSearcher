@@ -13,12 +13,13 @@ function App() {
     bottom: 0,
     width: '100%',
   }
+  const twitterUrl = "https://twitter.com/tsu7ma4_10nto";
 
   return (
     <div className="App">
         <p className="title">ポケモン種族値早見ツール</p>
         <PokemonSelector />
-        <Footer style={footerStyle}>©2021 Ryusei Nomi</Footer>
+        <Footer style={footerStyle}>©2021 <a href={twitterUrl} rel="noopener noreferrer" target="_blank">@tsu7ma4_ton10</a></Footer>
     </div>
   );
 }
