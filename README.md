@@ -1,5 +1,9 @@
 # Pokemon Tribe Rate Searcher
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/a87c0b68-458f-466b-90f4-cd5f2eb3bb12/deploy-status)](https://app.netlify.com/sites/pokemon-tribe-rate-searcher/deploys)
+
+![](./public/icon.png)
+
 ## About this app
 
 A web app for all pokemon trainers. You can to access to pokemon tribe rates quickly so you may be free for concern for memorization the pokemon's tribe rate.
