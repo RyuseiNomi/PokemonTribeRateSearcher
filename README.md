@@ -4,7 +4,7 @@
 
 A web app for all pokemon trainers. You can to access to pokemon tribe rates quickly so you may be free for concern for memorization the pokemon's tribe rate.
 
-![](./src/assets/demo.png)
+![](./src/assets/demo.gif)
 
 # Getting Started with Create React App
 
