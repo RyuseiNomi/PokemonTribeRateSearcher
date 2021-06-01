@@ -16,7 +16,7 @@ function App() {
 
   return (
     <div className="App">
-        <p>ポケモン種族値早見ツール</p>
+        <p className="title">ポケモン種族値早見ツール</p>
         <PokemonSelector />
         <Footer style={footerStyle}>©2021 Ryusei Nomi</Footer>
     </div>
