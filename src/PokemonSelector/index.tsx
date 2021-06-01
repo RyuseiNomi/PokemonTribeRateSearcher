@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Select, Progress } from 'antd';
+import { Select, Progress, Row, Col } from 'antd';
 import Pokemon from '../assets/pokemon/pokemon.json';
+import './index.css';
 
 /* JSONから読み込んだポケモンの種族値情報 */
 type Pokemon = {
@@ -34,11 +35,10 @@ const PokemonSelector:React.FC = () => {
 
   return (
       <>
-        <p>ポケモンを選択</p>
         <Select
           showSearch
           style={{ width: 200 }}
-          placeholder="Select a person"
+          placeholder="ポケモンを選択"
           optionFilterProp="children"
           onChange={handleChange}
         >
@@ -48,13 +48,57 @@ const PokemonSelector:React.FC = () => {
               );
           })}
         </Select>
-        <Progress percent={(parseInt(rates.h)/255)*100} status="active" showInfo={false}/>
-        <Progress percent={(parseInt(rates.a)/181)*100} status="active" showInfo={false}/>
-        <Progress percent={(parseInt(rates.b)/230)*100} status="active" showInfo={false}/>
-        <Progress percent={(parseInt(rates.c)/173)*100} status="active" showInfo={false}/>
-        <Progress percent={(parseInt(rates.d)/230)*100} status="active" showInfo={false}/>
-        <Progress percent={(parseInt(rates.s)/200)*100} status="active" showInfo={false}/>
-        <Progress percent={(parseInt(rates.total)/720)*100} status="active" showInfo={false}/>
+        <div className="chart">
+            <Row>
+                <Col span={6}><p>HP</p></Col>
+                <Col span={12}>
+                    <Progress percent={(parseInt(rates.h)/255)*100} status="active" showInfo={false}/>
+                </Col>
+                <Col span={6}><p>{rates.h}</p></Col>
+            </Row>
+            <Row>
+                <Col span={6}><p>こうげき</p></Col>
+                <Col span={12}>
+                    <Progress percent={(parseInt(rates.a)/181)*100} status="active" showInfo={false}/>
+                </Col>
+                <Col span={6}><p>{rates.a}</p></Col>
+            </Row>
+            <Row>
+                <Col span={6}><p>ぼうぎょ</p></Col>
+                <Col span={12}>
+                    <Progress percent={(parseInt(rates.b)/230)*100} status="active" showInfo={false}/>
+                </Col>
+                <Col span={6}><p>{rates.b}</p></Col>
+            </Row>
+            <Row>
+                <Col span={6}><p>とくこう</p></Col>
+                <Col span={12}>
+                    <Progress percent={(parseInt(rates.c)/173)*100} status="active" showInfo={false}/>
+                </Col>
+                <Col span={6}><p>{rates.c}</p></Col>
+            </Row>
+            <Row>
+                <Col span={6}><p>とくぼう</p></Col>
+                <Col span={12}>
+                    <Progress percent={(parseInt(rates.d)/230)*100} status="active" showInfo={false}/>
+                </Col>
+                <Col span={6}><p>{rates.d}</p></Col>
+            </Row>
+            <Row>
+                <Col span={6}><p>すばやさ</p></Col>
+                <Col span={12}>
+                    <Progress percent={(parseInt(rates.s)/200)*100} status="active" showInfo={false}/>
+                </Col>
+                <Col span={6}><p>{rates.s}</p></Col>
+            </Row>
+            <Row>
+                <Col span={6}><p>合計</p></Col>
+                <Col span={12}>
+                    <Progress percent={(parseInt(rates.total)/720)*100} status="active" showInfo={false}/>
+                </Col>
+                <Col span={6}><p>{rates.total}</p></Col>
+            </Row>
+        </div>
       </>
   );
 }

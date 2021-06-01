@@ -7,6 +7,7 @@ function App() {
 
   return (
     <div className="App">
+        <p>ポケモン種族値早見ツール</p>
         <PokemonSelector />
     </div>
   );
