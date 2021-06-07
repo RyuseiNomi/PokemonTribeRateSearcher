@@ -22,16 +22,21 @@ const PokemonSelector:React.FC = () => {
   var [rates, setRate] = useState({h: 0, a: 0, b: 0, c: 0, d: 0, s: 0, total: 0});
   var [searchedPokemons, setSearch] = useState(pokemons);
 
-  function handleChange(value: number) {
-    var selectedPokemon = pokemons[value];
+  function handleChange(pokemonName: string) {
+    var selectedPokemon = Object.values(pokemons)
+        .filter((key, value) => {
+            return (
+                pokemons[value].name.includes(pokemonName)
+            );
+    });
     setRate(rates = {
-        h: parseInt(selectedPokemon.h),
-        a: parseInt(selectedPokemon.a),
-        b: parseInt(selectedPokemon.b),
-        c: parseInt(selectedPokemon.c),
-        d: parseInt(selectedPokemon.d),
-        s: parseInt(selectedPokemon.s),
-        total: parseInt(selectedPokemon.total),
+        h: parseInt(selectedPokemon[0].h),
+        a: parseInt(selectedPokemon[0].a),
+        b: parseInt(selectedPokemon[0].b),
+        c: parseInt(selectedPokemon[0].c),
+        d: parseInt(selectedPokemon[0].d),
+        s: parseInt(selectedPokemon[0].s),
+        total: parseInt(selectedPokemon[0].total),
     });
   }
 
@@ -68,7 +73,7 @@ const PokemonSelector:React.FC = () => {
         >
           {Object.keys(searchedPokemons).map((key, value) => {
               return(
-                <Option value={key}>{searchedPokemons[value].name}</Option>
+                <Option value={searchedPokemons[value].name}>{searchedPokemons[value].name}</Option>
               );
           })}
         </Select>
