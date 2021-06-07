@@ -18,7 +18,9 @@ type Pokemon = {
 const PokemonSelector:React.FC = () => {
   const { Option } = Select;
   const pokemons:{[key: number]: Pokemon} = PokemonData;
+  const hiraganaRegex = /[\u3041-\u3096]/g;
   var [rates, setRate] = useState({h: 0, a: 0, b: 0, c: 0, d: 0, s: 0, total: 0});
+  var [searchedPokemons, setSearch] = useState(pokemons);
 
   function handleChange(value: number) {
     var selectedPokemon = pokemons[value];
@@ -33,6 +35,26 @@ const PokemonSelector:React.FC = () => {
     });
   }
 
+  /*
+    自作のポケモン選択フィルター
+    入力された文字をカタカナに変換することで平仮名でもポケモンのフィルタリングが可能
+   */
+  function convertKana(key: string) {
+    if (!key.match(hiraganaRegex)) {
+        return;
+    }
+    var katakana = key.replace(hiraganaRegex, ch =>
+        String.fromCharCode(ch.charCodeAt(0) + 0x60)
+    );
+    const filtered = Object.values(pokemons)
+        .filter((key, value) => {
+            return (
+                pokemons[value].name.includes(katakana)
+            );
+    });
+    setSearch(searchedPokemons = filtered);
+  }
+
   return (
       <>
         <Select
@@ -40,11 +62,13 @@ const PokemonSelector:React.FC = () => {
           placeholder="ポケモンを選択"
           optionFilterProp="children"
           onChange={handleChange}
+          onSearch={convertKana}
+          filterOption={false}
           size="large"
         >
-          {Object.keys(pokemons).map((key, value) => {
+          {Object.keys(searchedPokemons).map((key, value) => {
               return(
-                <Option value={key}>{pokemons[value].name}</Option>
+                <Option value={key}>{searchedPokemons[value].name}</Option>
               );
           })}
         </Select>
