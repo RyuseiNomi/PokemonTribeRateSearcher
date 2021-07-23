@@ -22,14 +22,14 @@ type Props = {
 
 // DOMからも state を参照するための interface
 interface States {
-  searchedPokemons: Pokemon[]
+  searchedPokemons: {[key: number]: Pokemon}
 }
 
 class PokemonSelector extends React.Component<Props, States> {
 
   constructor(props: Props) {
     super(props);
-    this.state = {searchedPokemons: []}
+    this.state = {searchedPokemons: this.props.pokemons}
     // NOTE: 継承を用いて定義された React コンポーネントは this が bind されないため手動で bind する
     this.handleChange = this.handleChange.bind(this);
     this.setPokemon = this.setPokemon.bind(this);
