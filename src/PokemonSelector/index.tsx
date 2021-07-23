@@ -1,18 +1,7 @@
 import React from 'react';
 import { Select } from 'antd';
 import './index.css';
-
-/* JSONから読み込んだポケモンの種族値情報 */
-type Pokemon = {
-    name: string;
-    h: string;
-    a: string;
-    b: string;
-    c: string;
-    d: string;
-    s: string;
-    total: string;
-};
+import { Pokemon } from 'pokemonTribeRateData';
 
 type Props = {
   /* propsを経由して渡ってくる、親コンポーネントの state を更新するメソッド */

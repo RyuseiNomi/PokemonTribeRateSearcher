@@ -5,22 +5,9 @@ import PokemonSelector from './PokemonSelector';
 import RateShowArea from './RateShowArea';
 import { Layout } from 'antd';
 import PokemonData from './assets/pokemon/pokemon.json';
+import { Pokemon } from 'pokemonTribeRateData';
 
-/* JSONから読み込んだポケモンの種族値情報 */
-type Pokemon = {
-    name: string;
-    h: string;
-    a: string;
-    b: string;
-    c: string;
-    d: string;
-    s: string;
-    total: string;
-};
-
-type Props = {
-
-}
+type Props = {}
 
 interface States {
   pokemon: Pokemon
