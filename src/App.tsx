@@ -28,7 +28,7 @@ class App extends React.Component<Props, States> {
   render() {
     //const pokemon = this.state;
     const { Footer } = Layout;
-    const twitterUrl = "https://twitter.com/tsu7ma4_10nto";
+    const twitterUrl = "https://twitter.com/27ma4_ton10";
     const pokemons:{[key: number]: Pokemon} = PokemonData;
 
     return (
@@ -36,7 +36,7 @@ class App extends React.Component<Props, States> {
           <p className="title">ポケモン種族値サーチ</p>
           <PokemonSelector onPokemonChange={this.handlePokemonChange} pokemons={pokemons} />
           <RateShowArea pokemon={this.state.pokemon} />
-          <Footer>©2021 <a href={twitterUrl} rel="noopener noreferrer" target="_blank">@tsu7ma4_ton10</a></Footer>
+          <Footer>©2021 <a href={twitterUrl} rel="noopener noreferrer" target="_blank">@27ma4_ton10</a></Footer>
       </div>
     );
   }
