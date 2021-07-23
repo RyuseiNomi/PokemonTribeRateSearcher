@@ -4,6 +4,7 @@ import 'antd/dist/antd.css';
 import PokemonSelector from './PokemonSelector';
 import RateShowArea from './RateShowArea';
 import { Layout } from 'antd';
+import PokemonData from './assets/pokemon/pokemon.json';
 
 /* JSONから読み込んだポケモンの種族値情報 */
 type Pokemon = {
@@ -41,11 +42,12 @@ class App extends React.Component<Props, States> {
     //const pokemon = this.state;
     const { Footer } = Layout;
     const twitterUrl = "https://twitter.com/tsu7ma4_10nto";
+    const pokemons:{[key: number]: Pokemon} = PokemonData;
 
     return (
       <div className="App">
           <p className="title">ポケモン種族値サーチ</p>
-          <PokemonSelector onPokemonChange={this.handlePokemonChange} />
+          <PokemonSelector onPokemonChange={this.handlePokemonChange} pokemons={pokemons} />
           <RateShowArea pokemon={this.state.pokemon} />
           <Footer>©2021 <a href={twitterUrl} rel="noopener noreferrer" target="_blank">@tsu7ma4_ton10</a></Footer>
       </div>

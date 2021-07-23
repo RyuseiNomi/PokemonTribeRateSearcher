@@ -1,6 +1,5 @@
 import React from 'react';
 import { Select } from 'antd';
-import PokemonData from '../assets/pokemon/pokemon.json';
 import './index.css';
 
 /* JSONから読み込んだポケモンの種族値情報 */
@@ -18,6 +17,7 @@ type Pokemon = {
 type Props = {
   /* propsを経由して渡ってくる、親コンポーネントの state を更新するメソッド */
   onPokemonChange: (p: Pokemon) => void;
+  pokemons: {[key: number]: Pokemon};
 }
 
 // DOMからも state を参照するための interface
@@ -30,6 +30,7 @@ class PokemonSelector extends React.Component<Props, States> {
   constructor(props: Props) {
     super(props);
     this.state = {searchedPokemons: []}
+    // NOTE: 継承を用いて定義された React コンポーネントは this が bind されないため手動で bind する
     this.handleChange = this.handleChange.bind(this);
     this.setPokemon = this.setPokemon.bind(this);
     this.setFilteredPokemon = this.setFilteredPokemon.bind(this);
@@ -43,11 +44,10 @@ class PokemonSelector extends React.Component<Props, States> {
      親コンポーネントのポケモン state を更新する
    */
   setPokemon(name: string) {
-    const pokemons:{[key: number]: Pokemon} = PokemonData;
-    var selectedPokemon = Object.values(pokemons)
+    var selectedPokemon = Object.values(this.props.pokemons)
       .filter((key, value) => {
         return (
-          pokemons[value].name.includes(name)
+          this.props.pokemons[value].name.includes(name)
         );
     });
     this.handleChange(selectedPokemon[0]);
@@ -57,7 +57,6 @@ class PokemonSelector extends React.Component<Props, States> {
      インクリメンタルサーチを擬似的に実現するためのフィルター関数
    */
   setFilteredPokemon(key: string) {
-    const pokemons:{[key: number]: Pokemon} = PokemonData;
     const hiraganaRegex = /[\u3041-\u3096]/g;
 
     /*
@@ -70,10 +69,10 @@ class PokemonSelector extends React.Component<Props, States> {
     var katakana = key.replace(hiraganaRegex, ch =>
       String.fromCharCode(ch.charCodeAt(0) + 0x60)
     );
-    const filtered = Object.values(pokemons)
+    const filtered = Object.values(this.props.pokemons)
       .filter((key, value) => {
         return (
-          pokemons[value].name.includes(katakana)
+          this.props.pokemons[value].name.includes(katakana)
       );
     });
 
