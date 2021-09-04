@@ -3,36 +3,79 @@
 }
 
 .title {
-    margin-bottom: 0;
-    background-color: rgb(227,78,78);
-    color: white;
+  margin-bottom: 0;
+  background-color: rgb(227,78,78);
+  color: white;
 }
 
-.ant-layout-footer {
-    text-align: center;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
+.main-content {
+  width: 100%;
+}
+
+.tab-label {
+  margin: 10px 0 15px 0;
+  display: block;
+  float: left;
+  width: calc(100%/2);
+}
+.main-content input:checked + .tab-label {
+  border-bottom: 3px solid #e34e4e;
+  color: #e34e4e;
+}
+
+.tab-label:hover {
+  opacity: 0.75;
+}
+
+input[name="tab-input"] {
+  display: none;
+}
+
+.tab-content {
+  display: none;
+  clear: both;
+  overflow: hidden;
+}
+
+#single:checked ~ #single-content,
+#compare:checked ~ #compare-content {
+  display: block;
+}
+
+.footer {
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 
 @media (min-width: 280px) {
-    .title {
-        font-size: 16pt;
-        padding: 20px 0 20px 0;
-    }
+  .title {
+    font-size: 16pt;
+    padding: 20px 0 20px 0;
+  }
+  .tab-label {
+    font-size: 14pt;
+  }
 }
 
 @media (min-width: 375px) {
-    .title {
-        font-size: 20pt;
-        padding: 20px 0 20px 0;
-    }
+  .title {
+    font-size: 20pt;
+    padding: 20px 0 20px 0;
+  }
+  .tab-label {
+    font-size: 16pt;
+  }
 }
 
 @media (min-width: 576px) {
-    .title {
-        font-size:28pt;
-        padding: 25px 0 25px 0;
-    }
+  .title {
+    font-size:28pt;
+    padding: 25px 0 25px 0;
+  }
+  .tab-label {
+    font-size: 18pt;
+  }
 }
 

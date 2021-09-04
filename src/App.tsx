@@ -1,30 +1,36 @@
 import React from 'react';
 import './App.css';
-import 'antd/dist/antd.css';
-import { Layout, Tabs } from 'antd';
 import SingleSearch from 'pages/SingleSearch'
 import CompareRate from 'pages/CompareRate'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class App extends React.Component {
 
   render() {
     //const pokemon = this.state;
-    const { Footer } = Layout;
-    const { TabPane } = Tabs;
     const twitterUrl = "https://twitter.com/27ma4_ton10";
 
     return (
       <div className="App">
         <p className="title">ポケモン種族値サーチ</p>
-        <Tabs defaultActiveKey="1" centered>
-          <TabPane tab="検索" key="1">
+        <div className="main-content">
+
+          <input id="single" type="radio" name="tab-input" checked />
+          <label className="tab-label" htmlFor="single">検索</label>
+          <input id="compare" type="radio" name="tab-input" />
+          <label className="tab-label" htmlFor="compare">比較</label>
+
+          <div className="tab-content" id="single-content">
             <SingleSearch />
-          </TabPane>
-          <TabPane tab="比較" key="2">
+          </div>
+          <div className="tab-content" id="compare-content">
             <CompareRate />
-          </TabPane>
-        </Tabs>
-        <Footer>©2021 <a href={twitterUrl} rel="noopener noreferrer" target="_blank">@27ma4_ton10</a></Footer>
+          </div>
+
+        </div>
+        <div className="footer">
+          <p>©2021 <a href={twitterUrl} rel="noopener noreferrer" target="_blank">@27ma4_ton10</a></p>
+        </div>
       </div>
     );
   }
