@@ -1,33 +1,34 @@
-.card {
+.compare-card {
   margin: 20px 20px;
+  background-color: rgba(245, 245, 245, 1);
 }
 
-.card .compare-card-title {
+.compare-card .compare-card-title {
   background-color: rgba(227, 78, 78, 0.8);
   padding: 10px 0 10px 0;
 }
 
-.card .compare-card-title p {
+.compare-card .compare-card-title p {
   color: rgba(255, 255, 255, 1);
 
 }
 
 @media(min-width: 280px) {
-  .card .rate {
-    font-size: 16pt;
-  }
-  
-  .card .skill-title {
+  .compare-card .skill-title {
     font-size: 14pt;
+  }
+
+  .compare-card .compare-card-rate {
+    font-size: 18pt;
   }
 }
 
 @media(min-width: 760px) {
-  .card .rate {
-    font-size: 18pt;
+  .compare-card .compare-card-rate {
+    font-size: 20pt;
   }
   
-  .card .skill-title {
+  .compare-card .skill-title {
     font-size: 16pt;
   }
 }

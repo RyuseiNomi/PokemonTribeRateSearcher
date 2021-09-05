@@ -1,5 +1,6 @@
 import React from 'react';
-import { Progress, Row, Col } from 'antd';
+import { Row, Col } from 'antd';
+import RateShowBar from 'components/util/RateShowBar';
 import './index.css';
 
 type Props = {
@@ -11,17 +12,29 @@ type Props = {
 
 class RateCompareCard extends React.Component<Props> {
 
+  /*
+     自分のポケモンの種族値が相手の種族値の何倍なのかを返す
+     小数点第一位を切り捨てて返却
+     ex) 0.12342341238 → 0.1
+   */
+  getMagnification(partnerRate: number, opponentRate: number) {
+    return Math.round((partnerRate / opponentRate) * 10) / 10;
+  }
+
   render() {
     return(
-      <div className="card">
+      <div className="compare-card">
         <div className="compare-card-title">
-          <p className="skill-title">{ this.props.title }</p>
+          <Row>
+            <Col span={6}><p className="compare-card-rate">{ this.props.partnerRate }</p></Col>
+            <Col span={12}>
+              <p className="skill-title">{ this.props.title }</p>
+              <p className="skill-magnification">約 { this.getMagnification(this.props.partnerRate, this.props.opponentRate) } 倍</p>
+            </Col>
+            <Col span={6}><p className="compare-card-rate">{ this.props.opponentRate }</p></Col>
+          </Row>
         </div>
-        <Row>
-          <Col span={12}><p className="rate">{ this.props.partnerRate }</p></Col>
-          <Col span={12}><p className="rate">{ this.props.opponentRate }</p></Col>
-        </Row>
-        <Progress percent={ this.props.ratio } status="active" showInfo={false}/>
+        <RateShowBar ratio={ this.props.ratio } />
       </div>
     );
   }
