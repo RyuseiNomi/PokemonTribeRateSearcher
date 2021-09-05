@@ -39,17 +39,19 @@ class CompareRate extends React.Component<Props, States> {
     const pokemons:{[key: number]: Pokemon} = PokemonData;
 
     return (
-      <div className="pokemon-compare-input">
-        <div className="partner">
-          <p>自分のポケモン</p>
-          <PokemonSelector onPokemonChange={this.handlePartnerChange} pokemons={pokemons} />
-        </div>
-        <div classname="opponent">
-          <p>相手のポケモン</p>
-          <PokemonSelector onPokemonChange={this.handleOpponentChange} pokemons={pokemons} />
+      <>
+        <div className="compare-input">
+          <div className="partner">
+            <p>自分のポケモン</p>
+            <PokemonSelector onPokemonChange={this.handlePartnerChange} pokemons={pokemons} />
+          </div>
+          <div className="opponent">
+            <p>相手のポケモン</p>
+            <PokemonSelector onPokemonChange={this.handleOpponentChange} pokemons={pokemons} />
+          </div>
         </div>
         <RateCompareArea partner={this.state.partner} opponent={this.state.opponent} />
-      </div>
+      </>
     );
   }
 }
