@@ -6,3 +6,9 @@
 .compare-rate-show-area p {
   font-weight: bold;
 }
+
+@media(min-width: 960px) {
+  .compare-rate-show-area {
+    padding: 0 150px 0 150px;
+  }
+}
