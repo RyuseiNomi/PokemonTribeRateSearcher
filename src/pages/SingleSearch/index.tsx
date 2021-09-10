@@ -24,7 +24,6 @@ class SingleSearch extends React.Component<Props, States> {
   }
 
   render() {
-    //const pokemon = this.state;
     const pokemons_json:{[key: number]: PokemonJson} = PokemonData;
 
     return (
