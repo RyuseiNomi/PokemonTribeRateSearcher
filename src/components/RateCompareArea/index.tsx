@@ -10,49 +10,44 @@ type Props = {
 
 class RateCompareArea extends React.Component<Props> {
 
-  hpRatio() {
-    return this.calcRatio(parseInt(this.props.partner.h), parseInt(this.props.opponent.h));
-  }
-
-  aRatio() {
-    return this.calcRatio(parseInt(this.props.partner.a), parseInt(this.props.opponent.a));
-  }
-
-  bRatio() {
-    return this.calcRatio(parseInt(this.props.partner.b), parseInt(this.props.opponent.b));
-  }
-
-  cRatio() {
-    return this.calcRatio(parseInt(this.props.partner.c), parseInt(this.props.opponent.c));
-  }
-
-  dRatio() {
-    return this.calcRatio(parseInt(this.props.partner.d), parseInt(this.props.opponent.d));
-  }
-
-  sRatio() {
-    return this.calcRatio(parseInt(this.props.partner.s), parseInt(this.props.opponent.s));
-  }
-
-  totalRatio() {
-    return this.calcRatio(parseInt(this.props.partner.total), parseInt(this.props.opponent.total));
-  }
-
-  // プログレスバーに表示するためのレートを計算
-  calcRatio(partnerRatio: number, opponentRatio: number) {
-    return ( partnerRatio / opponentRatio ) * 50;
-  }
-
   render() {
     return (
       <div className="compare-rate-show-area">
-        <RateCompareCard title="HP" partnerRate={parseInt(this.props.partner.h)} opponentRate={parseInt(this.props.opponent.h)} ratio={this.hpRatio()} />
-        <RateCompareCard title="こうげき" partnerRate={parseInt(this.props.partner.a)} opponentRate={parseInt(this.props.opponent.a)} ratio={this.aRatio()} />
-        <RateCompareCard title="ぼうぎょ" partnerRate={parseInt(this.props.partner.b)} opponentRate={parseInt(this.props.opponent.b)} ratio={this.bRatio()} />
-        <RateCompareCard title="とくこう" partnerRate={parseInt(this.props.partner.c)} opponentRate={parseInt(this.props.opponent.c)} ratio={this.cRatio()} />
-        <RateCompareCard title="とくぼう" partnerRate={parseInt(this.props.partner.d)} opponentRate={parseInt(this.props.opponent.d)} ratio={this.dRatio()} />
-        <RateCompareCard title="すばやさ" partnerRate={parseInt(this.props.partner.s)} opponentRate={parseInt(this.props.opponent.s)} ratio={this.sRatio()} />
-        <RateCompareCard title="合計" partnerRate={parseInt(this.props.partner.total)} opponentRate={parseInt(this.props.opponent.total)} ratio={this.totalRatio()} />
+        <RateCompareCard
+          title="HP"
+          partnerRate={this.props.partner.h}
+          opponentRate={this.props.opponent.h}
+        />
+        <RateCompareCard
+          title="こうげき"
+          partnerRate={this.props.partner.a}
+          opponentRate={this.props.opponent.a}
+        />
+        <RateCompareCard
+          title="ぼうぎょ"
+          partnerRate={this.props.partner.b}
+          opponentRate={this.props.opponent.b}
+        />
+        <RateCompareCard
+          title="とくこう"
+          partnerRate={this.props.partner.c}
+          opponentRate={this.props.opponent.c}
+        />
+        <RateCompareCard
+          title="とくぼう"
+          partnerRate={this.props.partner.d}
+          opponentRate={this.props.opponent.d}
+        />
+        <RateCompareCard
+          title="すばやさ"
+          partnerRate={this.props.partner.s}
+          opponentRate={this.props.opponent.s}
+        />
+        <RateCompareCard
+          title="合計"
+          partnerRate={this.props.partner.total}
+          opponentRate={this.props.opponent.total}
+        />
       </div>
     );
   }

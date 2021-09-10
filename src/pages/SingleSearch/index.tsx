@@ -3,7 +3,7 @@ import 'antd/dist/antd.css';
 import PokemonSelector from 'components/PokemonSelector';
 import RateShowArea from 'components/RateShowArea';
 import PokemonData from 'assets/pokemon/pokemon.json';
-import { Pokemon } from 'pokemonTribeRateData';
+import { PokemonJson, Pokemon } from 'pokemonTribeRateData';
 
 type Props = {}
 
@@ -15,7 +15,7 @@ class SingleSearch extends React.Component<Props, States> {
 
   constructor(props: Props) {
     super(props);
-    this.state = {pokemon: {name: '', h: '', a: '', b: '', c: '', d: '', s: '', total: ''}};
+    this.state = {pokemon: {name: '', h: 0, a: 0, b: 0, c: 0, d: 0, s: 0, total: 0}};
     this.handlePokemonChange = this.handlePokemonChange.bind(this);
   }
 
@@ -25,11 +25,11 @@ class SingleSearch extends React.Component<Props, States> {
 
   render() {
     //const pokemon = this.state;
-    const pokemons:{[key: number]: Pokemon} = PokemonData;
+    const pokemons_json:{[key: number]: PokemonJson} = PokemonData;
 
     return (
       <>
-        <PokemonSelector onPokemonChange={this.handlePokemonChange} pokemons={pokemons} />
+        <PokemonSelector onPokemonChange={this.handlePokemonChange} pokemons_json={pokemons_json} />
         <RateShowArea pokemon={this.state.pokemon} />
       </>
     );

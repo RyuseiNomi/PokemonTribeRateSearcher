@@ -7,7 +7,6 @@ type Props = {
   title: string;
   partnerRate: number;
   opponentRate: number;
-  ratio: number;
 }
 
 class RateCompareCard extends React.Component<Props> {
@@ -18,7 +17,14 @@ class RateCompareCard extends React.Component<Props> {
      ex) 0.12342341238 → 0.1
    */
   getMagnification(partnerRate: number, opponentRate: number) {
+    if (partnerRate === 0 || opponentRate === 0) { return 0; }
     return Math.round((partnerRate / opponentRate) * 10) / 10;
+  }
+
+  // プログレスバーに表示するためのレートを計算
+  calcRatio(partnerRate: number, opponentRate: number) {
+    if (partnerRate === 0 || opponentRate === 0) { return 0; }
+    return ( partnerRate / opponentRate ) * 50;
   }
 
   render() {
@@ -34,7 +40,7 @@ class RateCompareCard extends React.Component<Props> {
             <Col span={6}><p className="compare-card-rate">{ this.props.opponentRate }</p></Col>
           </Row>
         </div>
-        <RateShowBar ratio={ this.props.ratio } />
+        <RateShowBar ratio={ this.calcRatio(this.props.partnerRate, this.props.opponentRate) } />
       </div>
     );
   }
