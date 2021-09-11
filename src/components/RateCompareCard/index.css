@@ -5,12 +5,10 @@
 
 .compare-card .compare-card-title {
   background-color: rgba(227, 78, 78, 0.8);
-  padding: 10px 0 10px 0;
 }
 
 .compare-card .compare-card-title p {
   color: rgba(255, 255, 255, 1);
-
 }
 
 @media(min-width: 280px) {
