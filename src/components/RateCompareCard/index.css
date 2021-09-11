@@ -1,0 +1,32 @@
+.compare-card {
+  margin: 20px 20px;
+  background-color: rgba(245, 245, 245, 1);
+}
+
+.compare-card .compare-card-title {
+  background-color: rgba(227, 78, 78, 0.8);
+}
+
+.compare-card .compare-card-title p {
+  color: rgba(255, 255, 255, 1);
+}
+
+@media(min-width: 280px) {
+  .compare-card .skill-title {
+    font-size: 14pt;
+  }
+
+  .compare-card .compare-card-rate {
+    font-size: 18pt;
+  }
+}
+
+@media(min-width: 760px) {
+  .compare-card .compare-card-rate {
+    font-size: 20pt;
+  }
+  
+  .compare-card .skill-title {
+    font-size: 16pt;
+  }
+}

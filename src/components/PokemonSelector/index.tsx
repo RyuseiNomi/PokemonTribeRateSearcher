@@ -1,42 +1,53 @@
 import React from 'react';
 import { Select } from 'antd';
 import './index.css';
-import { Pokemon } from 'pokemonTribeRateData';
+import { PokemonJson, Pokemon } from 'pokemonTribeRateData';
 
 type Props = {
   /* propsを経由して渡ってくる、親コンポーネントの state を更新するメソッド */
   onPokemonChange: (p: Pokemon) => void;
-  pokemons: {[key: number]: Pokemon};
+  pokemons_json: {[key: number]: PokemonJson};
 }
 
 // DOMからも state を参照するための interface
 interface States {
-  searchedPokemons: {[key: number]: Pokemon}
+  searchedPokemons: {[key: number]: PokemonJson}
 }
 
 class PokemonSelector extends React.Component<Props, States> {
 
   constructor(props: Props) {
     super(props);
-    this.state = {searchedPokemons: this.props.pokemons}
+    this.state = {searchedPokemons: this.props.pokemons_json}
     // NOTE: 継承を用いて定義された React コンポーネントは this が bind されないため手動で bind する
     this.handleChange = this.handleChange.bind(this);
     this.setPokemon = this.setPokemon.bind(this);
     this.setFilteredPokemon = this.setFilteredPokemon.bind(this);
   }
 
-  handleChange(e: Pokemon) {
-    this.props.onPokemonChange(e);
+  handleChange(e: PokemonJson) {
+    // 親コンポーネントの state を更新する際に種族値を number 型に cast する
+    const show_pokemon: Pokemon = {
+      name: e.name,
+      h: parseInt(e.h),
+      a: parseInt(e.a),
+      b: parseInt(e.b),
+      c: parseInt(e.c),
+      d: parseInt(e.d),
+      s: parseInt(e.s),
+      total: parseInt(e.total),
+    }
+    this.props.onPokemonChange(show_pokemon);
   }
 
   /*
      親コンポーネントのポケモン state を更新する
    */
   setPokemon(name: string) {
-    var selectedPokemon = Object.values(this.props.pokemons)
+    var selectedPokemon = Object.values(this.props.pokemons_json)
       .filter((key, value) => {
         return (
-          this.props.pokemons[value].name.includes(name)
+          this.props.pokemons_json[value].name.includes(name)
         );
     });
     this.handleChange(selectedPokemon[0]);
@@ -58,10 +69,10 @@ class PokemonSelector extends React.Component<Props, States> {
     var katakana = key.replace(hiraganaRegex, ch =>
       String.fromCharCode(ch.charCodeAt(0) + 0x60)
     );
-    const filtered = Object.values(this.props.pokemons)
+    const filtered = Object.values(this.props.pokemons_json)
       .filter((key, value) => {
         return (
-          this.props.pokemons[value].name.includes(katakana)
+          this.props.pokemons_json[value].name.includes(katakana)
       );
     });
 

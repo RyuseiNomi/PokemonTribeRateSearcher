@@ -1,0 +1,20 @@
+.compare-input {
+  padding: 0 15px 0 15px;
+  background-color: #f5f5f5;
+}
+
+.compare-input .ant-select-show-search {
+  width: 95%;
+}
+
+.compare-input p {
+  text-align: left;
+  padding-top: 15px;
+  width: 95%;
+}
+
+@media(min-width: 760px) {
+  .compare-input {
+    padding: 0 50px 0 50px;
+  }
+}
