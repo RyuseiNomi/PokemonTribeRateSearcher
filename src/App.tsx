@@ -3,26 +3,68 @@ import './App.css';
 import SingleSearch from 'pages/SingleSearch'
 import CompareRate from 'pages/CompareRate'
 
-class App extends React.Component {
+type Props = {}
+type State = {
+  isVisibleSingleSearch: boolean
+  isVisibleCompareRate: boolean
+}
+
+class App extends React.Component<Props, State> {
+
+  constructor(props: Props) {
+    super(props);
+    this.state = {
+      isVisibleSingleSearch: true,
+      isVisibleCompareRate: false,
+    }
+  }
+
+  toggleContent(content: string) {
+    if (content === "single") {
+      this.setState({isVisibleSingleSearch: true})
+      this.setState({isVisibleCompareRate: false})
+      return
+    }
+    if (content === "compare") {
+      this.setState({isVisibleSingleSearch: false})
+      this.setState({isVisibleCompareRate: true})
+      return
+    }
+  }
 
   render() {
-    //const pokemon = this.state;
     const twitterUrl = "https://twitter.com/27ma4_ton10";
+    const singleContentStyle = {
+      display: this.state.isVisibleSingleSearch? 'block' : 'none'
+    };
+    const compareContentStyle = {
+      display: this.state.isVisibleCompareRate? 'block' : 'none'
+    };
+    const inputSingleStyle = {
+      borderBottom: this.state.isVisibleSingleSearch? '3px solid #e34e4e' : '',
+      color: this.state.isVisibleSingleSearch? '#e34e4e' : ''
+    }
+    const inputCompareStyle = {
+      borderBottom: this.state.isVisibleCompareRate? '3px solid #e34e4e' : '',
+      color: this.state.isVisibleCompareRate? '#e34e4e' : ''
+    }
 
     return (
       <div className="App">
         <p className="title">ポケモン種族値サーチ</p>
         <div className="main-content">
 
-          <input id="single" type="radio" name="tab-input" checked />
-          <label className="tab-label" htmlFor="single">検索</label>
-          <input id="compare" type="radio" name="tab-input" />
-          <label className="tab-label" htmlFor="compare">比較</label>
+          <div id="single" className="tab-label" onClick={()=>this.toggleContent('single')} style={inputSingleStyle}>
+            <p>検索</p>
+          </div>
+          <div id="compare" className="tab-label" onClick={()=>this.toggleContent('compare')} style={inputCompareStyle}>
+            <p>比較</p>
+          </div>
 
-          <div className="tab-content" id="single-content">
+          <div className="tab-content" id="single-content" style={singleContentStyle} >
             <SingleSearch />
           </div>
-          <div className="tab-content" id="compare-content">
+          <div className="tab-content" id="compare-content" style={compareContentStyle} >
             <CompareRate />
           </div>
 

@@ -17,14 +17,10 @@
 }
 
 .tab-label {
-  margin: 10px 0 15px 0;
+  padding: 10px 0 10px 0;
   display: block;
   float: left;
   width: calc(100%/2);
-}
-.main-content input:checked + .tab-label {
-  border-bottom: 3px solid #e34e4e;
-  color: #e34e4e;
 }
 
 .tab-label:hover {
@@ -36,14 +32,7 @@ input[name="tab-input"] {
 }
 
 .tab-content {
-  display: none;
   clear: both;
-  overflow: hidden;
-}
-
-#single:checked ~ #single-content,
-#compare:checked ~ #compare-content {
-  display: block;
 }
 
 .footer {
