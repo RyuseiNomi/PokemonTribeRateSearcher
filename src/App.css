@@ -6,9 +6,19 @@
   margin-bottom: 0;
 }
 
-.title {
-  margin-bottom: 0;
+.title-bar {
   background-color: rgb(227,78,78);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  float: left;
+}
+
+.title-bar p {
   color: white;
 }
 
@@ -46,6 +56,12 @@ input[name="tab-input"] {
     font-size: 16pt;
     padding: 20px 0 20px 0;
   }
+
+  .title-bar img {
+    max-width: 30px;
+    height: 100%;
+  }
+
   .tab-label {
     font-size: 14pt;
   }
@@ -56,6 +72,12 @@ input[name="tab-input"] {
     font-size: 20pt;
     padding: 20px 0 20px 0;
   }
+
+  .title-bar img {
+    max-width: 35px;
+    height: 100%;
+  }
+
   .tab-label {
     font-size: 16pt;
   }
@@ -66,6 +88,12 @@ input[name="tab-input"] {
     font-size:28pt;
     padding: 25px 0 25px 0;
   }
+
+  .title-bar img {
+    max-width: 45px;
+    height: 100%;
+  }
+
   .tab-label {
     font-size: 18pt;
   }

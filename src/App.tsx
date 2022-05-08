@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import SingleSearch from 'pages/SingleSearch'
 import CompareRate from 'pages/CompareRate'
+import icon from './assets/icon.png';
 
 type Props = {}
 type State = {
@@ -51,7 +52,10 @@ class App extends React.Component<Props, State> {
 
     return (
       <div className="App">
-        <p className="title">ポケモン種族値サーチ</p>
+        <div className="title-bar">
+          <img className="title" src={icon} alt='icon' />
+          <p className="title">ポケモン種族値サーチ</p>
+        </div>
         <div className="main-content">
 
           <div id="single" className="tab-label" onClick={()=>this.toggleContent('single')} style={inputSingleStyle}>
